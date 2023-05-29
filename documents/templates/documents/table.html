@@ -1,0 +1,38 @@
+{% extends 'documents/base.html' %}
+{% load static %}
+
+                {% block menu %}
+                <div class="header__item headerButton"><a href="regIP.html">Выйти</a></div>
+                {% endblock %}
+
+{% block table %}
+        <div class="formreg">
+            <table>
+                <tr>
+                  <th>Номер</th>
+                  <th>Наименование</th>
+                  <th>Дата</th>
+                  <th>Отправитель</th>
+                  <th>Статус</th>
+                </tr>
+                {% for doc in inbox_docs %}
+                <tr>
+                  <td>{{doc.number}}</td>
+                  <td>{{doc.name}}</td>
+                  <td>{{doc.date}}</td>
+                  <td>{{ doc.sender }}</td>
+                  <td>{{ prints }}</td>
+                </tr>
+                {% endfor %}
+
+              </table>
+        </div>>
+        <form action="/podpis" method="post">
+            {% csrf_token %}
+            <input type="submit">
+        </form>
+    <button id="sendPost">ОТПРАВИТЬ ПОСТ</button>
+    <script>
+        document.getElementById('sendPost')
+    </script>
+{% endblock %}

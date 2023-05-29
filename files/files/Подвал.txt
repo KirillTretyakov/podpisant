@@ -1,0 +1,10 @@
+footer{
+  margin: 1000px auto 0;
+  height: 100px;
+  background: #3df3d4;
+  position: relative;
+}
+
+<footer>
+    <a href="">All information is private</a>
+</footer>

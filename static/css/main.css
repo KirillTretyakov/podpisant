@@ -1,0 +1,103 @@
+body {
+    background: url('../img/main.png');
+    background-color: #E8FCFF;
+
+    background-size: 10% auto;
+    margin: 0%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #b3e8e2;
+    color: #fff;
+}
+
+.header__section {
+    display: flex;
+    align-items: center;
+}
+
+.header__item {
+    padding: 10px 15px;
+    font-size: 20px;
+    margin-left: 5px;
+    transition: 1s;
+    text-align: center;
+}
+
+.PodpisLogo {
+  font-size: 2.0rem;
+}
+
+.header__item:hover {
+    transform: scale(1.2);
+}
+
+.form {
+    max-width: 320px;
+    padding: 15px;
+    margin: 20px auto;
+
+  }
+
+  .input {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+
+    border: 1px solid #ccc;
+
+    font-family: inherit;
+    font-size: 16px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 4%;
+
+    border: 0;
+    border-top: 10%;
+    background-color: #3df3d4;
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  .btn:hover {
+    background-color: #5cb9cb;
+  }
+
+  .registrButtom{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    padding: 3%;
+    display: flex;
+  }
+
+    .formreg{
+        margin: 0 auto;
+        width: 50%;
+        height: 10%;
+        padding: 3%;
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+footer{
+  margin: 1000px auto 0;
+  height: 100px;
+  background: #3df3d4;
+  position: relative;
+}
