@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 from documents.views import index, table, podpis
-from users.views import registration, login
+from users.views import registration, login, profile, logout
 
 
 urlpatterns = [
@@ -30,6 +30,8 @@ urlpatterns = [
     path('podpis', podpis, name='podpis'),
     path('registration', registration, name='registration'),
     path('login', login, name='login'),
+    path('profile', profile, name='profile'),
+    path('logout', logout, name='logout'),
 ]
 
 

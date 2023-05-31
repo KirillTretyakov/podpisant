@@ -2,13 +2,13 @@
 {% load static %}
 
                 {% block menu %}
-                <div class="header__item headerButton"><a href="{% url 'login' %}">Войти</a></div>
+                <div class="header__item headerButton"><a href="{% url 'logout' %}">Выйти</a></div>
                 {% endblock %}
 
         {% block table %}
         <div class="formreg">
 
-            <form action="{% url 'registration' %}" method = 'post'>
+            <form action="{% url 'profile' %}" method = 'post'>
                 {% csrf_token %}
                 <div class="mb-3">
                 <label for="{{ form.first_name.id_for_lable }}" class="form-label">Ваше имя</label>
@@ -32,8 +32,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="{{ form.password.id_for_lable }}" class="form-label">Введите пароль</label>
-                    {{ form.password }} 
-                </div> 
+                    {{ form.password }}
+                </div>
                 <div class="mb-3">
                     <label for="{{ form.password1.id_for_lable }}" class="form-label">Повторите пароль</label>
                     {{ form.password1 }}
@@ -42,13 +42,7 @@
                     <label for="{{ form.password2.id_for_lable }}" class="form-label">Еще раз повторите пароль</label>
                     {{ form.password2 }}
                 </div>
-                {% if form.errors %}
-                <div id='emailHelp' class="form-text" style="color: red">
-                {{ form.errors }}
-                </div>
-
-                {% endif %}
-                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
             </form>
         </div>
 {% endblock %}
