@@ -55,3 +55,4 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'username', 'INN', 'password', 'password1', 'password2')
+        

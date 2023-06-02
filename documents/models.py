@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
 # TextField()
@@ -26,3 +27,4 @@ class send_documents(models.Model):
 
     def __str__(self):
         return f'Имя файла: {self.name} | Статус: {self.status} | Дата отправки: {self.date_send}'
+

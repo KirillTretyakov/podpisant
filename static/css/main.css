@@ -88,16 +88,22 @@ a {
 
     .formreg{
         margin: 0 auto;
-        width: 50%;
+        width: 80%;
         height: 10%;
         padding: 3%;
         background-color: rgba(255, 255, 255, 0.8);
         box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
+        display: flex;
+        justify-content: column;
     }
 footer{
   margin: 1000px auto 0;
   height: 100px;
   background: #3df3d4;
   position: relative;
+}
+.list{
+  display: flex;
+  justify-content: center;
 }

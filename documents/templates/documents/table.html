@@ -7,7 +7,7 @@
                 {% endblock %}
 
 {% block table %}
-        <div class="formreg">
+        <!-- <div class="formreg">
             <table>
                 <tr>
                   <th>Номер</th>
@@ -27,13 +27,112 @@
                 {% endfor %}
 
               </table>
-        </div>>
+        </div> -->
+        <div class="formreg">
+
+          <form action="{% url 'table' %}" method = 'post'>
+              {% csrf_token %}
+              <div class="mb-3">
+              <label for="{{ form.name.id_for_lable }}" class="form-label">Название документа</label>
+              {{ form.name }}
+              </div>
+              <div class="mb-3">
+              <label for="{{ form.number.id_for_lable }}" class="form-label">Номер документа</label>
+              {{ form.number }}
+              </div>
+              <div class="mb-3">
+              <label for="{{ form.date_document.id_for_lable }}" class="form-label">Дата документа</label>
+              {{ form.date_document }}
+              </div>
+              <div class="mb-3">
+                  <label for="{{ form.date_send.id_for_lable }}" class="form-label">Дата отправки</label>
+                  {{ form.date_send }}
+              </div>
+              <div class="mb-3">
+                <input type='file'>  
+                <label for="{{ form.file.id_for_lable }}" class="form-label">Файл отправки</label>
+                  {{ form.file }}
+              </div>
+              <div class="mb-3">
+                  <label for="{{ form.status.id_for_lable }}" class="form-label">Статус</label>
+                  {{ form.status }}
+              </div>
+              <div class="mb-3">
+                  <label for="{{ form.sender.id_for_lable }}" class="form-label">Отправитель</label>
+                  {{ form.sender }}
+              </div>
+              <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+          </form>
+      </div>
+
         <form action="/podpis" method="post">
             {% csrf_token %}
-            <input type="submit">
+            Для поиска сертификатов нажмите <input type="submit" value="Найти сертификаты">
+            <!-- <br>Введите номер сертификата, которым вы хотите подписать документ <input type="Hello"> -->
         </form>
+        <!-- <input type = 'text'>
     <button id="sendPost">ОТПРАВИТЬ ПОСТ</button>
     <script>
         document.getElementById('sendPost')
-    </script>
+    </script> --> 
+<!-- 
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit">Submit</button>
+      {{form.my_field11}}
+    </form> -->
+
+  
 {% endblock %}
+
+{% block list %}
+<div class="info_certs">{{ prints0 }}</div>
+
+<div class="formreg">
+<table>
+  <tr>
+    <th>Информация о сертификате №</th>
+    <th>Издатель</th>
+    <th>Серийный номер</th>
+    <th>Данные владельца</th>
+    <th>Действителен с</th>
+    <th>Действителен по</th>
+  </tr>
+  <tr>
+    {% for inf1 in prints1 %}
+    <td>{{ inf1 }}</td>
+    {% endfor %}
+
+    {% for inf2 in prints2 %}
+    <td>{{ inf2 }}</td>
+    {% endfor %}
+
+    {% for inf3 in prints3 %}
+    <td>{{ inf3 }}</td>
+    {% endfor %}
+
+    {% for inf4 in prints4 %}
+    <td>{{ inf4 }}</td>
+    {% endfor %}
+
+    {% for inf5 in prints5 %}
+    <td>{{ inf5 }}</td>
+    {% endfor %}
+
+    {% for inf6 in prints6 %}
+    <td>{{ inf6 }}</td>
+    {% endfor %}
+  </tr>
+  
+
+</table>
+</div>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  
+  <input type="number" name="user_output" placeholder="Введите номер сертификата из списка, которым будет подписан загруженный документ">
+  <button type="submit">Подписать выбранным сертификатом</button>
+</form>
+
+  {% endblock %}
