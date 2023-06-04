@@ -66,12 +66,12 @@ a {
 
     border: 0;
     border-top: 10%;
-    background-color: #3df3d4;
+    background-color: #b3e8e2;
     cursor: pointer;
 
     font-family: inherit;
     font-size: 16px;
-    color: #fff;
+    color: black;
   }
 
   .btn:hover {
@@ -86,9 +86,9 @@ a {
     display: flex;
   }
 
-    .formreg{
+    .formreg-left{
         margin: 0 auto;
-        width: 80%;
+        width: 95%;
         height: 10%;
         padding: 3%;
         background-color: rgba(255, 255, 255, 0.8);
@@ -97,13 +97,117 @@ a {
         display: flex;
         justify-content: column;
     }
+
+
+    .formreg-center{
+      margin: 0 auto;
+      width: 30%;
+      height: 10%;
+      padding: 3%;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 5px 45px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+  }
+
+
 footer{
   margin: 1000px auto 0;
   height: 100px;
-  background: #3df3d4;
+  background: #b3e8e2;
   position: relative;
 }
 .list{
   display: flex;
   justify-content: center;
 }
+
+table{
+  table-layout: auto;
+  width: 100%;
+  word-break: break-all;
+  }
+  
+  tbody{
+  display: flex;
+  }
+  
+  tr{
+  display: flex;
+  flex-direction: column;
+  
+  
+  }
+  
+  td{
+  border: 1px solid black;
+  height: 150px;
+  width: auto;
+  }
+
+  th.data{
+    text-align: center;
+    height: 50px;
+        }
+  th.name{
+    text-align: center;
+    height: 50px;
+          }
+  th.name{
+    text-align: center;
+    height: 50px;
+          }
+  th.serial{
+    text-align: center;
+    height: 50px;
+            }
+  th.issuer{
+    text-align: center;
+    height: 50px;
+          }
+  th.num{
+    text-align: center;
+    height: 50px;
+          }
+
+  caption{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+  }        
+                              
+                        
+            
+
+  .data{
+    text-align: center;
+    border: 1px solid black;
+    height: 180px;
+    width: 200px;
+    }
+
+  .name{
+    text-align: center;
+      border: 1px solid black;
+      height: 180px;
+      width: 450px;
+      }
+  .serial{
+    text-align: center;
+      border: 1px solid black;
+      height: 180px;
+      width: 250px;
+      }
+  .issuer{
+    text-align: center;
+        border: 1px solid black;
+        height: 180px;
+        width: 500px;
+        }
+  .num{
+    text-align: center;
+          border: 1px solid black;
+          height: 180px;
+          width: 30px;
+        }

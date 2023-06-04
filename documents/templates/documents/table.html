@@ -28,7 +28,7 @@
 
               </table>
         </div> -->
-        <div class="formreg">
+        <div class="formreg-left">
 
           <form action="{% url 'table' %}" method = 'post'>
               {% csrf_token %}
@@ -86,46 +86,183 @@
 {% endblock %}
 
 {% block list %}
-<div class="info_certs">{{ prints0 }}</div>
 
-<div class="formreg">
-<table>
+
+<div class="formreg-left">
+  <table class="table table-striped">
+    <caption>{{ prints0 }}</caption>
+    <tbody>
+      <tr>
+        <th class="num">№</td>
+        {% for inf1 in prints1 %}
+        <td class="num">{{ inf1 }}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th class="issuer">Издатель</td>
+        {% for inf2 in prints2 %}
+        <td class="issuer">{{ inf2 }}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th class="serial">Серийный номер</td>
+        {% for inf3 in prints3 %}
+        <td class="serial">{{ inf3 }}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th class="name">Данные владельца</td>
+        {% for inf4 in prints4 %}
+        <td class="name">{{ inf4 }}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th class="data">Действителен с</td>
+        {% for inf5 in prints5 %}
+        <td class="data">{{ inf5 }}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <th class="data">Действителен по</td>
+        {% for inf6 in prints6 %}
+        <td class="data">{{ inf6 }}</td>
+        {% endfor %}
+      </tr>
+      </tbody>
+  </table>
+
+
+
+
+
+
+
+<!-- <table>
   <tr>
     <th>Информация о сертификате №</th>
+    <tr>
+    {% for inf1 in prints1 %}
+    <td>{{ inf1 }}</td>
+    {% endfor %}
+  </tr>
     <th>Издатель</th>
     <th>Серийный номер</th>
     <th>Данные владельца</th>
     <th>Действителен с</th>
     <th>Действителен по</th>
   </tr>
+
+
   <tr>
+    {% for inf in prints %}
+  
+    <td>{{ prints.number }}</td>
+    <td>{{ prints.issuer }}</td>
+    <td>{{ prints.serial_number }}</td>
+    <td>{{ prints.subject }}</td>
+    <td>{{ prints.date_from }}</td>
+    <td>{{ prints.date_to }}</td>
+  
+    {% endfor %}
+      </tr> -->
+  
+      <!-- <div class="tableRow">
+            <div class="ab">Информация о сертификате</div>
+            <div class="ab">Издатель</div>
+            <div class="ab">Серийный номер</div>
+            <div class="ab">Данные владельца</div>
+            <div class="ab">Действителен с</div>
+            <div class="ab">Действителен по</div> -->
+        
+        <!-- <div class="tableColumn">
+        <div class="ab">Информация о сертификате
+          {% for inf1 in prints1 %}
+            <div class="ab">{{ inf1 }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+        <div class="tableColumn">
+          <div class="ab">Издатель
+          {% for inf2 in prints2 %}
+            <div class="ab">{{ inf2 }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+        <div class="tableColumn">
+          <div class="ab">Серийный номер
+          {% for inf3 in prints3 %}
+            <div class="ab">{{ inf3 }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+        <div class="tableColumn">
+          <div class="ab">Данные владельца
+          {% for inf4 in prints4 %}
+            <div class="ab">{{ inf4 }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+        <div class="tableColumn">
+          <div class="ab">Действителен с
+          {% for inf5 in prints5 %}
+            <div class="ab">{{ inf5 }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+        <div class="tableColumn">
+          <div class="ab">Действителен по
+          {% for inf6 in prints6 %}
+            <div class="ab">{{ inf6 }}</div>
+          {% endfor %}
+        </div>
+      </div>
+        
+    </div> -->
+
+
+  <!-- <tr>
     {% for inf1 in prints1 %}
     <td>{{ inf1 }}</td>
     {% endfor %}
+  </tr>
 
+  <tr>
     {% for inf2 in prints2 %}
     <td>{{ inf2 }}</td>
     {% endfor %}
+  </tr>
 
+  <tr>
     {% for inf3 in prints3 %}
     <td>{{ inf3 }}</td>
     {% endfor %}
+  </tr>
 
+  <tr>
     {% for inf4 in prints4 %}
     <td>{{ inf4 }}</td>
     {% endfor %}
-
+  </tr>
+  
+  <tr>
     {% for inf5 in prints5 %}
     <td>{{ inf5 }}</td>
     {% endfor %}
+  </tr>
 
+  <tr>
     {% for inf6 in prints6 %}
     <td>{{ inf6 }}</td>
     {% endfor %}
-  </tr>
+  </tr> -->
   
 
-</table>
+<!-- </table> -->
 </div>
 
 <form action="" method="POST">

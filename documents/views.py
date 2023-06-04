@@ -38,7 +38,6 @@ def podpis(request):
         # print(request.POST.get('city'))
 
         user_output = request.POST.get('user_output')
-        
         context = {
                         "title": 'Входящие',
                         'inbox_docs': inbox_documents.objects.all(),
@@ -96,7 +95,7 @@ def podpis(request):
 
 def choose(request):
     if request.method == 'POST':
-        form = choose_file_form(data=request.POST)
+        form = choose_file_form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Файл успешно загружен')
