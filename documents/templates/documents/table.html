@@ -64,11 +64,44 @@
               <button type="submit" class="btn btn-primary">Сохранить изменения</button>
           </form>
       </div>
+<!-- 
+        <div class="formreg-center">
+
+          <form action="{% url 'table' %}" method = 'post'>
+              {% csrf_token %}
+              <div class="mb-3">
+                <style>
+                  .name {
+                   padding-left: 50px;
+                  }
+                 </style>
+                <label for="name">Введите наименование документа</label>
+                <input type="text" id="name" placeholder="Заявление о предоставлении сведений о трудовом стаже" size="45">
+              </div>
+              <div class="mb-3">
+                <label for="number">Введите номер документа</label>
+                <input type="text" id="number" placeholder="Поле необязательно для заполнения" size="45">
+              </div>
+              <div class="mb-3">
+                <label for="date">Введите дату документа</label>
+                <input type="date" id="date">
+              </div>
+              <div class="mb-3">  
+                <label for="file" class="form-label">Выберите файл отправки</label>
+                <input type='file'>
+              </div>
+              <button type="submit" class="btn btn-primary">Сохранить изменения и выбрать сертификат для подписания</button>
+          </form>
+      </div> -->
+
+
+      
+
+
 
         <form action="/podpis" method="post">
             {% csrf_token %}
             Для поиска сертификатов нажмите <input type="submit" value="Найти сертификаты">
-            <!-- <br>Введите номер сертификата, которым вы хотите подписать документ <input type="Hello"> -->
         </form>
         <!-- <input type = 'text'>
     <button id="sendPost">ОТПРАВИТЬ ПОСТ</button>
@@ -84,6 +117,8 @@
 
   
 {% endblock %}
+
+<h1> fjjjj</h1>
 
 {% block list %}
 
@@ -263,13 +298,23 @@
   
 
 <!-- </table> -->
+
 </div>
+
+
 
 <form action="" method="POST">
   {% csrf_token %}
+
+  <!-- <div class="mb-3">
+    <label for="number">Введите номер сертификата из списка, которым будет подписан загруженный документ</label>
+    <input type="number" id="number">
+    <button type="submit">Подписать выбранным сертификатом</button>
+  </div> -->
   
-  <input type="number" name="user_output" placeholder="Введите номер сертификата из списка, которым будет подписан загруженный документ">
-  <button type="submit">Подписать выбранным сертификатом</button>
+    <input type="number" name="user_output" placeholder="Введите номер сертификата из списка, которым будет подписан загруженный документ" size="70">
+    <button type="submit">Подписать выбранным сертификатом</button>
 </form>
+
 
   {% endblock %}

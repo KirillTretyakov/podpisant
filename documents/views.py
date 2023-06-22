@@ -17,6 +17,9 @@ import pycades
 def index(request):
     return render(request, 'documents/index.html')
 
+def test(request):
+    return render(request, 'documents/test.html')
+
 def table(request):
     print(request.user)
     context = {

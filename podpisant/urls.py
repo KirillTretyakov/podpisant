@@ -19,7 +19,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from documents.views import index, table, podpis
+from documents.views import index, table, podpis, test
 from users.views import registration, login, profile, logout
 
 
@@ -32,6 +32,7 @@ urlpatterns = [
     path('login', login, name='login'),
     path('profile', profile, name='profile'),
     path('logout', logout, name='logout'),
+    path('test', test, name='test'),
 ]
 
 
