@@ -1,7 +1,7 @@
 'use strict';
 
 var elems_before_signing =
-    ['DataToSign', 'DataToSignItemBorder', 'DataToSignTxtBox', 'SignData', 'TSPService', 'TSPServiceItemBorder', 'TSPServiceTxtBox', 'FileLimitNote'];
+    ['DataToSign', 'DataToSignTxtBox', 'SignData', 'TSPService', 'TSPServiceItemBorder', 'TSPServiceTxtBox', 'FileLimitNote'];
 var elems_after_signing =
     ['SignatureTitle', 'SignatureTitleItemBorder', 'TimeTitle'];
 var isFileOpened = false;
@@ -47,14 +47,14 @@ function step_1() {
     for (i = 0; i < elems_after_signing.length; i++) {
         hide_elem(elems_after_signing[i]);
     }
-    highlight_elem("CertListBoxToHide");
+    // highlight_elem("CertListBoxToHide");
 }
 
 function step_2() {
     restore_elem("CertListBoxToHide");
     if (document.getElementById("openFileButton") === null) {
         if (document.getElementById("SignatureTxtBox").value === "") {
-            highlight_elem("SignData");
+            // highlight_elem("SignData");
         }
         else {
             restore_elem("SignData");
@@ -62,10 +62,10 @@ function step_2() {
     }
     else {
         if (!isFileOpened)
-            highlight_elem("DataToSignItemBorder");
+            // highlight_elem("DataToSignItemBorder");
         document.getElementById('openFileButton').addEventListener("change", function () {
             restore_elem("DataToSignItemBorder");
-            highlight_elem("SignData");
+            // highlight_elem("SignData");
             isFileOpened = true;
         });
     }
@@ -84,7 +84,7 @@ function step_3() {
     setTimeout(function () {
         restore_elem("SignatureTitleItemBorder");
     }, 3000);
-    highlight_elem("SignatureTitleItemBorder");
+    // highlight_elem("SignatureTitleItemBorder");
 }
 
 step_1();

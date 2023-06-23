@@ -253,11 +253,11 @@ function ClearCertInfo(field_prefix) {
     document.getElementById(field_prefix + "issuer").innerHTML = "";
     document.getElementById(field_prefix + "from").innerHTML = "";
     document.getElementById(field_prefix + "till").innerHTML = "";
-    document.getElementById(field_prefix + "provname").innerHTML = "";
-    document.getElementById(field_prefix + "privateKeyLink").innerHTML = "";
-    document.getElementById(field_prefix + "algorithm").innerHTML = "";
+    // document.getElementById(field_prefix + "provname").innerHTML = "";
+    // document.getElementById(field_prefix + "privateKeyLink").innerHTML = "";
+    // document.getElementById(field_prefix + "algorithm").innerHTML = "";
     document.getElementById(field_prefix + "status").innerHTML = "";
-    document.getElementById(field_prefix + "location").innerHTML = "";
+    // document.getElementById(field_prefix + "location").innerHTML = "";
 }
 
 function FillCertInfo_NPAPI(certificate, certBoxId, isFromContainer)
@@ -292,19 +292,19 @@ function FillCertInfo_NPAPI(certificate, certBoxId, isFromContainer)
     document.getElementById(field_prefix + "till").innerHTML = "Действителен до: <b>" + escapeHtml(certObj.GetCertTillDate()) + " UTC<b>";
     var hasPrivateKey = certificate.HasPrivateKey();
     if (hasPrivateKey) {
-        document.getElementById(field_prefix + "provname").innerHTML = "Криптопровайдер: <b>" + escapeHtml(certObj.GetPrivateKeyProviderName()) + "<b>";
+        // document.getElementById(field_prefix + "provname").innerHTML = "Криптопровайдер: <b>" + escapeHtml(certObj.GetPrivateKeyProviderName()) + "<b>";
         try {
-            var privateKeyLink = certObj.GetPrivateKeyLink();
-            document.getElementById(field_prefix + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b>" + escapeHtml(privateKeyLink) + "<b>";
+            // var privateKeyLink = certObj.GetPrivateKeyLink();
+            // document.getElementById(field_prefix + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b>" + escapeHtml(privateKeyLink) + "<b>";
         } catch (e) {
-            document.getElementById(field_prefix + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b> Набор ключей не существует<b>";
+            // document.getElementById(field_prefix + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b> Набор ключей не существует<b>";
         }
     } else {
-        document.getElementById(field_prefix + "provname").innerHTML = "Криптопровайдер:<b>";
-        document.getElementById(field_prefix + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ:<b>";
+        // document.getElementById(field_prefix + "provname").innerHTML = "Криптопровайдер:<b>";
+        // document.getElementById(field_prefix + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ:<b>";
     }
 
-    document.getElementById(field_prefix + "algorithm").innerHTML = "Алгоритм ключа: <b>" + escapeHtml(certObj.GetPubKeyAlgorithm()) + "<b>";
+    // document.getElementById(field_prefix + "algorithm").innerHTML = "Алгоритм ключа: <b>" + escapeHtml(certObj.GetPubKeyAlgorithm()) + "<b>";
     var certIsValid = false;
     if(Now < ValidFromDate) {
         document.getElementById(field_prefix + "status").innerHTML = "Статус: <b class=\"error\">Срок действия не наступил</b>";
@@ -329,12 +329,12 @@ function FillCertInfo_NPAPI(certificate, certBoxId, isFromContainer)
     if(isFromContainer)
     {
         if (certIsValid) {
-            document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <span><b class=\"warning\">Нет. При такой конфигурации не все приложения и порталы могут работать</b><br/><a style=\"cursor: pointer\" onclick=\"Common_InstallCertificate('"+ escapeHtml(certBoxId) +"');\">Установить</a></span>";
+            // document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <span><b class=\"warning\">Нет. При такой конфигурации не все приложения и порталы могут работать</b><br/><a style=\"cursor: pointer\" onclick=\"Common_InstallCertificate('"+ escapeHtml(certBoxId) +"');\">Установить</a></span>";
         } else {
-            document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Нет</b>";
+            // document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Нет</b>";
         }
     } else {
-        document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Да</b>";
+        // document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Да</b>";
     }
 }
 
@@ -834,7 +834,6 @@ CertificateObj.prototype.extract = function(from, what)
         }
         certName = (end < 0) ? from.substr(begin) : from.substr(begin, end - begin);
     }
-
     return certName;
 }
 
@@ -846,7 +845,7 @@ CertificateObj.prototype.DateTimePutTogether = function(certDate)
 
 CertificateObj.prototype.GetCertString = function()
 {
-    return this.extract(this.cert.SubjectName,'CN=') + "; Выдан: " + this.GetCertFromDate();
+    return this.extract(this.cert.SubjectName, 'CN=') + "; Выдан: " + this.GetCertFromDate();
 }
 
 CertificateObj.prototype.GetCertFromDate = function()
@@ -859,10 +858,10 @@ CertificateObj.prototype.GetCertTillDate = function()
     return this.DateTimePutTogether(this.certTillDate);
 }
 
-CertificateObj.prototype.GetPubKeyAlgorithm = function()
-{
-    return this.cert.PublicKey().Algorithm.FriendlyName;
-}
+// CertificateObj.prototype.GetPubKeyAlgorithm = function()
+// {
+//     return this.cert.PublicKey().Algorithm.FriendlyName;
+// }
 
 CertificateObj.prototype.GetCertName = function()
 {
@@ -879,9 +878,9 @@ CertificateObj.prototype.GetPrivateKeyProviderName = function()
     return this.cert.PrivateKey.ProviderName;
 }
 
-CertificateObj.prototype.GetPrivateKeyLink = function () {
-    return this.cert.PrivateKey.UniqueContainerName;
-}
+// CertificateObj.prototype.GetPrivateKeyLink = function () {
+//     return this.cert.PrivateKey.UniqueContainerName;
+// }
 
 function GetFirstCert_NPAPI() {
     try {

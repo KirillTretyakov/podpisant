@@ -230,8 +230,9 @@ div#DataToSignItemBorder {
     width: auto;
     font-family: inherit;
     font-size: 16px;
-    height: 150px;
+    height: 200px;
 }
+
 
 #number{
     width: 700px;
@@ -331,7 +332,6 @@ div#DataToSignItemBorder {
 
 .item_border {
     padding: 4px;
-    width: 1000px;
     height: 200px;
 }
 
@@ -352,6 +352,10 @@ div#DataToSignItemBorder {
     width: 100%;
     resize: none;
     border: 0;
+}
+
+.user_input option {
+    padding-bottom: 25px;
 }
 
 object.hiddenObject {
@@ -434,10 +438,11 @@ object.hiddenObject {
 
 
 #cert_info, #cert_info1, #cert_info2, #cert_info_decr {
-    background-image: url(static/img/a3.gif);
-    border: 1px solid #5a9251;
+    /* background-image: url(static/img/a3.gif);
+    border: 1px solid #5a9251; */
     padding: 10px;
 }
+
 
 footer{
     margin: 1000px auto 0;

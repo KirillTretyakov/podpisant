@@ -64,7 +64,7 @@ CertificateAdjuster.prototype.GetIssuer = function(certIssuerName)
 
 CertificateAdjuster.prototype.GetCertInfoString = function(certSubjectName, certFromDate)
 {
-    return this.extract(certSubjectName,'CN=') + "; Выдан: " + this.GetCertDate(certFromDate);
+    return 'Наименование владильца сертификата ' + this.extract(certSubjectName, 'CN=') + "; Дата выдачи сертифката: " + this.GetCertDate(certFromDate);
 }
 
 function CheckForPlugIn_Async() {
@@ -246,8 +246,8 @@ function FillCertList_Async(lstId, lstId2) {
                         var ValidFromDate = new Date((yield cert.ValidFromDate));
                         var ValidToDate = new Date(yield cert.ValidToDate);
                         var IsValid = ValidToDate > Date.now();
-                        var emoji = CertStatusEmoji(IsValid);
-                        oOpt.text = emoji + new CertificateAdjuster().GetCertInfoString(yield cert.SubjectName, ValidFromDate);
+                        // var emoji = CertStatusEmoji(IsValid);
+                        oOpt.text = new CertificateAdjuster().GetCertInfoString(yield cert.SubjectName, ValidFromDate);
                     }
                     catch (ex) {
                         alert("Ошибка при получении свойства SubjectName: " + cadesplugin.getLastError(ex));
@@ -306,8 +306,8 @@ function FillCertList_Async(lstId, lstId2) {
                         var ValidFromDate = new Date((yield cert.ValidFromDate));
                         var ValidToDate = new Date(yield cert.ValidToDate);
                         var IsValid = ValidToDate > Date.now();
-                        var emoji = CertStatusEmoji(IsValid);
-                        oOpt.text = emoji + new CertificateAdjuster().GetCertInfoString(yield cert.SubjectName, ValidFromDate);
+                        // var emoji = CertStatusEmoji(IsValid);
+                        oOpt.text = new CertificateAdjuster().GetCertInfoString(yield cert.SubjectName, ValidFromDate);
                     }
                     catch (ex) {
                         alert("Ошибка при получении свойства SubjectName: " + cadesplugin.getLastError(ex));
@@ -784,22 +784,22 @@ function FillCertInfo_Async(certificate, certBoxId, isFromContainer)
         var Now = new Date();
 
         var pubKey = yield args[0].PublicKey();
-        var algo = yield pubKey.Algorithm;
-        var fAlgoName = yield algo.FriendlyName;
-        document.getElementById(args[2] + "algorithm").innerHTML = "Алгоритм ключа: <b>" + escapeHtml(fAlgoName) + "<b>";
+        // var algo = yield pubKey.Algorithm;
+        // var fAlgoName = yield algo.FriendlyName;
+        // document.getElementById(args[2] + "algorithm").innerHTML = "Алгоритм ключа: <b>" + escapeHtml(fAlgoName) + "<b>";
         if (hasPrivateKey) {
             var oPrivateKey = yield args[0].PrivateKey;
             var sProviderName = yield oPrivateKey.ProviderName;
-            document.getElementById(args[2] + "provname").innerHTML = "Криптопровайдер: <b>" + escapeHtml(sProviderName) + "<b>";
+            // document.getElementById(args[2] + "provname").innerHTML = "Криптопровайдер: <b>" + escapeHtml(sProviderName) + "<b>";
             try {
-                var sPrivateKeyLink = yield oPrivateKey.UniqueContainerName;
-                document.getElementById(args[2] + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b>" + escapeHtml(sPrivateKeyLink) + "<b>";
+                // var sPrivateKeyLink = yield oPrivateKey.UniqueContainerName;
+                // document.getElementById(args[2] + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b>" + escapeHtml(sPrivateKeyLink) + "<b>";
             } catch (e) {
-                document.getElementById(args[2] + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b>" + escapeHtml(e.message) + "<b>";
+                // document.getElementById(args[2] + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ: <b>" + escapeHtml(e.message) + "<b>";
             }
         } else {
-            document.getElementById(args[2] + "provname").innerHTML = "Криптопровайдер:<b>";
-            document.getElementById(args[2] + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ:<b>";
+            // document.getElementById(args[2] + "provname").innerHTML = "Криптопровайдер:<b>";
+            // document.getElementById(args[2] + "privateKeyLink").innerHTML = "Ссылка на закрытый ключ:<b>";
         }
         var certIsValid = false;
         if(Now < ValidFromDate) {
@@ -827,12 +827,12 @@ function FillCertInfo_Async(certificate, certBoxId, isFromContainer)
         if(args[3])
         {
             if (certIsValid) {
-                document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <span><b class=\"warning\">Нет. При такой конфигурации не все приложения и порталы могут работать</b><br/><a style=\"cursor: pointer\" onclick=\"Common_InstallCertificate('"+ escapeHtml(certBoxId) +"');\">Установить</a></span>";
+                // document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <span><b class=\"warning\">Нет. При такой конфигурации не все приложения и порталы могут работать</b><br/><a style=\"cursor: pointer\" onclick=\"Common_InstallCertificate('"+ escapeHtml(certBoxId) +"');\">Установить</a></span>";
             } else {
-                document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Нет</b>";
+                // document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Нет</b>";
             }
         } else {
-            document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Да</b>";
+            // document.getElementById(field_prefix + "location").innerHTML = "Установлен в хранилище: <b>Да</b>";
         }
 
     }, certificate, BoxId, field_prefix, isFromContainer);//cadesplugin.async_spawn
